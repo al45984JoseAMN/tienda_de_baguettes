@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Baguettes</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Realiza tu pedido de baguettes</h1>
+<div>
+    <form>
+        <label>Especialidad:</label>
+        <select style="width: 300px;">
+            <option>Clasica $80.00 MXN</option>
+            <option>Integral $90.00 MXN</option>
+            <option>Ajo $95.00 MXN</option>
+            <option>Queso $100.00 MXN</option>
+        </select>
+        <br><br>
+        <label>Tipo de pan:</label>
+            <input type="radio" name="pan" value="clasico">Clasico
+            <input type="radio" name="pan" value="ajonjoli">Con Ajonjoli (+$20.00 MXN)
+            <input type="radio" name="pan" value="integral">Integral (+$20.00 MXN)
+            <input type="radio" name="pan" value="brionche">Brionche (+$50.00 MXN)
+        <br><br>
+        <label>Ingredientes Adicionales (5.00 MXN c/u):</label>
+            <input type="checkbox" name="ingrediente" value="queso">Queso 
+            <input type="checkbox" name="ingrediente" value="Lechuga">Lechuga
+            <input type="checkbox" name="ingrediente" value="jitomate">Jitomate
+            <input type="checkbox" name="ingrediente" value="cebolla">Cebolla
+            <input type="checkbox" name="ingrediente" value="jalapeño">Jalapeño
+            <input type="checkbox" name="ingrediente" value="huevo">Huevo
+            <input type="checkbox" name="ingrediente" value="pepino">Pepino
+            <input type="checkbox" name="ingrediente" value="champiñones">Champiñones
+            <input type="checkbox" name="ingrediente" value="tocino_extra">Tocino Extra
+            <input type="checkbox" name="ingrediente" value="doble_queso">Doble Queso
+            <input type="checkbox" name="ingrediente" value="piña">Piña
+            <input type="checkbox" name="ingrediente" value="guacamole">Guacamole
+            <input type="checkbox" name="ingrediente" value="salsa_bbq">Salsa BBQ
+            <input type="checkbox" name="ingrediente" value="aderezo_chipotle">Aderezo Chipotle
+            <input type="checkbox" name="ingrediente" value="aderzo_chipotle">Aderezo Chipotle
+            <input type="checkbox" name="ingrediente" value="mayonesa">Mayonesa
+            <input type="checkbox" name="ingrediente" value="mostaza">Mostaza
+            <input type="checkbox" name="ingrediente" value="ketchup">Ketchup
+            <input type="checkbox" name="ingrediente" value="pepperoni">pepperoni
+            <input type="checkbox" name="ingrediente" value="arucula">Arucula
+            <input type="checkbox" name="ingrediente" value="cebolla_caramelizada">Cebolla Caramelizada
+        <br><br>
+        <label>Cantidad de Baguettes</label>
+            <input type="number" style="width: 400px;">
+        <br><br>
+            <input type="checkbox">Es a domicilio (+$30.00 MXN)
+        <br><br>
+        <label>Total:</label>
+            <input type="text" style="width: 200px;">
+        <br><br>
+        <button type="submit">Calcular Total</button>
+    </form>
+</div>
+</body>
+</html>
