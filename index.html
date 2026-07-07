@@ -1,64 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Baguettes</title>
     <style>
+        /* Fondo */
+        body {
+            background-color: #ff9955;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
 
+        /* Contenedor principal*/
+        .container {
+            background: white;
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .formulario { flex: 2; }
+        .galeria { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+
+        h1 { color: #333; margin-top: 0; }
+
+        /* inputs */
+        label { display: block; font-weight: bold; margin: 15px 0 5px; }
+        select, input[type="number"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        
+        .ingredientes {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .ingrediente-item { font-size: 14px; }
+
+        /* Estilo del botón */
+        .total-box {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff7744;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover { background-color: #e66a3d; }
+
+        /* Imágenes */
+        .galeria img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <h1>Realiza tu pedido de baguettes</h1>
-<div>
-    <form>
-        <label>Especialidad:</label>
-        <select style="width: 300px;">
-            <option>Clasica $80.00 MXN</option>
-            <option>Integral $90.00 MXN</option>
-            <option>Ajo $95.00 MXN</option>
-            <option>Queso $100.00 MXN</option>
-        </select>
-        <br><br>
-        <label>Tipo de pan:</label>
-            <input type="radio" name="pan" value="clasico">Clasico
-            <input type="radio" name="pan" value="ajonjoli">Con Ajonjoli (+$20.00 MXN)
-            <input type="radio" name="pan" value="integral">Integral (+$20.00 MXN)
-            <input type="radio" name="pan" value="brionche">Brionche (+$50.00 MXN)
-        <br><br>
-        <label>Ingredientes Adicionales (5.00 MXN c/u):</label>
-            <input type="checkbox" name="ingrediente" value="queso">Queso 
-            <input type="checkbox" name="ingrediente" value="Lechuga">Lechuga
-            <input type="checkbox" name="ingrediente" value="jitomate">Jitomate
-            <input type="checkbox" name="ingrediente" value="cebolla">Cebolla
-            <input type="checkbox" name="ingrediente" value="jalapeño">Jalapeño
-            <input type="checkbox" name="ingrediente" value="huevo">Huevo
-            <input type="checkbox" name="ingrediente" value="pepino">Pepino
-            <input type="checkbox" name="ingrediente" value="champiñones">Champiñones
-            <input type="checkbox" name="ingrediente" value="tocino_extra">Tocino Extra
-            <input type="checkbox" name="ingrediente" value="doble_queso">Doble Queso
-            <input type="checkbox" name="ingrediente" value="piña">Piña
-            <input type="checkbox" name="ingrediente" value="guacamole">Guacamole
-            <input type="checkbox" name="ingrediente" value="salsa_bbq">Salsa BBQ
-            <input type="checkbox" name="ingrediente" value="aderezo_chipotle">Aderezo Chipotle
-            <input type="checkbox" name="ingrediente" value="aderzo_chipotle">Aderezo Chipotle
-            <input type="checkbox" name="ingrediente" value="mayonesa">Mayonesa
-            <input type="checkbox" name="ingrediente" value="mostaza">Mostaza
-            <input type="checkbox" name="ingrediente" value="ketchup">Ketchup
-            <input type="checkbox" name="ingrediente" value="pepperoni">pepperoni
-            <input type="checkbox" name="ingrediente" value="arucula">Arucula
-            <input type="checkbox" name="ingrediente" value="cebolla_caramelizada">Cebolla Caramelizada
-        <br><br>
-        <label>Cantidad de Baguettes</label>
-            <input type="number" style="width: 400px;">
-        <br><br>
-            <input type="checkbox">Es a domicilio (+$30.00 MXN)
-        <br><br>
-        <label>Total:</label>
-            <input type="text" style="width: 200px;">
-        <br><br>
-        <button type="submit">Calcular Total</button>
-    </form>
+
+<div class="container">
+    <div class="formulario">
+        <h1>Realiza tu Pedido de Baguettes</h1>
+        <form>
+            <label>Especialidad:</label>
+            <select>
+                <option>Clásica $80.00 MXN</option>
+            </select>
+
+            <label>Tipo de Pan:</label>
+            <div>
+                <input type="radio" name="pan"> Clásico <br>
+                <input type="radio" name="pan"> Con Ajonjolí (+$20 MXN) <br>
+                <input type="radio" name="pan"> Integral (+$20 MXN) <br>
+                <input type="radio" name="pan"> Brioche (+$50 MXN)
+            </div>
+
+            <label>Ingredientes adicionales (5.00 MXN c/u):</label>
+            <div class="ingredientes">
+                <div class="ingrediente-item"><input type="checkbox"> Queso</div>
+                <div class="ingrediente-item"><input type="checkbox"> Lechuga</div>
+                <div class="ingrediente-item"><input type="checkbox"> Jitomate</div>
+                <div class="ingrediente-item"><input type="checkbox"> Cebolla</div>
+                <div class="ingrediente-item"><input type="checkbox"> Jalapeño</div>
+                <div class="ingrediente-item"><input type="checkbox"> Huevo</div>
+                <div class="ingrediente-item"><input type="checkbox"> Pepino</div>
+                <div class="ingrediente-item"><input type="checkbox"> Champiñones</div>
+                <div class="ingrediente-item"><input type="checkbox"> Tocino extra</div>
+                <div class="ingrediente-item"><input type="checkbox"> Doble Queso</div>
+                <div class="ingrediente-item"><input type="checkbox"> Piña</div>
+                <div class="ingrediente-item"><input type="checkbox"> Guacamole</div>
+                <div class="ingrediente-item"><input type="checkbox"> Salsa BBQ</div>
+                <div class="ingrediente-item"><input type="checkbox"> Aderezo Chipotle</div>
+                <div class="ingrediente-item"><input type="checkbox"> Mayonesa</div>
+                <div class="ingrediente-item"><input type="checkbox"> Mostaza</div>
+                <div class="ingrediente-item"><input type="checkbox"> Ketchup</div>
+                <div class="ingrediente-item"><input type="checkbox"> Pepperoni</div>
+                <div class="ingrediente-item"><input type="checkbox"> Arúcula</div>
+                <div class="ingrediente-item"><input type="checkbox"> Cebolla Caramelizada</div>
+            </div>
+
+            <label>Cantidad de Baguettes:</label>
+            <input type="number" value="1">
+
+            <label><input type="checkbox"> ¿Es a domicilio? (+$30 MXN)</label>
+
+            <div class="total-box">Total: $0.00</div>
+
+            <button type="button">Calcular Total</button>
+        </form>
+    </div>
+
+    <div class="galeria">
+        <img src="imagenes/pan1.jpg">
+        <img src="imagenes/pan2.jpg">
+        <img src="imagenes/pan3.webp">
+        <img src="imagenes/pan4.avif">
+        <img src="imagenes/pan5.jpg">
+    </div>
 </div>
 </body>
 </html>
