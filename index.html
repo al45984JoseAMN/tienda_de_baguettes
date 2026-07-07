@@ -84,7 +84,7 @@
 <div class="container">
     <div class="formulario">
         <h1>Realiza tu Pedido de Baguettes</h1>
-        <form>
+        <form id="pedido">
             <label>Especialidad:</label>
             <select id="especialidad" >
                 <option value="80">Clásica $80.00 MXN</option>
@@ -95,40 +95,40 @@
 
             <label>Tipo de Pan:</label>
             <div>
-                <input type="radio" name="pan" value="7"> Clásico (+7 MXN) <br>
-                <input type="radio" name="pan" value="20"> Con Ajonjolí (+$20 MXN) <br>
-                <input type="radio" name="pan" value="20"> Integral (+$20 MXN) <br>
-                <input type="radio" name="pan" value="50"> Brioche (+$50 MXN)
+                <input type="radio" class="pan" name="pan" value="7"> Clásico (+7 MXN) <br>
+                <input type="radio" class="pan" name="pan" value="20"> Con Ajonjolí (+$20 MXN) <br>
+                <input type="radio" class="pan" name="pan" value="20"> Integral (+$20 MXN) <br>
+                <input type="radio" class="pan" name="pan" value="50"> Brioche (+$50 MXN)
             </div>
 
             <label>Ingredientes adicionales (5.00 MXN c/u):</label>
             <div class="ingredientes">
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Queso</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Lechuga</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Jitomate</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Cebolla</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Jalapeño</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Huevo</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Pepino</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Champiñones</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Tocino extra</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Doble Queso</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Piña</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Guacamole</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Salsa BBQ</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Aderezo Chipotle</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Mayonesa</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Mostaza</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Ketchup</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Pepperoni</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5"> Arúcula</div>
-                <div class="ingrediente-item"><input type="checkbox" id="ingrediente" value="5" > Cebolla Caramelizada</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Queso</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Lechuga</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Jitomate</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Cebolla</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Jalapeño</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Huevo</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Pepino</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Champiñones</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Tocino extra</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Doble Queso</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Piña</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Guacamole</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Salsa BBQ</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Aderezo Chipotle</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Mayonesa</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Mostaza</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Ketchup</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Pepperoni</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5"> Arúcula</div>
+                <div class="ingrediente-item"><input type="checkbox" class="ingrediente" value="5" > Cebolla Caramelizada</div>
             </div>
 
             <label>Cantidad de Baguettes:</label>
-            <input type="number" value="1">
+            <input type="number" id="cantidad" value="1">
 
-            <label><input type="checkbox"> ¿Es a domicilio? (+$30 MXN)</label>
+            <label><input type="checkbox" id="envio_domicilio"> ¿Es a domicilio? (+$30 MXN)</label>
 
             <div class="total-box">Total: $0.00</div>
 
@@ -145,7 +145,59 @@
     </div>
 </div>
 <script>
+    // notas:
+    // parsefloat: numero decimal
+    // parseint: numero entero
+    // forEach: recorrer una lista de elementos (un array o una nodelist)
 
+    const form = document.getElementById('pedido');
+    const totalBox = document.querySelector('.total-box');
+
+    // especialidad
+    function calcularTotal() {
+        let total = parseFloat(document.getElementById('especialidad').value);
+
+    // tipo de Pan
+        const panSeleccionado = document.querySelector('input[name="pan"]:checked');
+        if (panSeleccionado) {
+            total += parseFloat(panSeleccionado.value);
+        }
+
+    // ingredientes
+        const ingredientes = document.querySelectorAll('.ingrediente:checked');
+        ingredientes.forEach(ing => {
+            total += parseFloat(ing.value);
+        });
+
+    // cantidad
+        const cantidad = parseInt(document.getElementById('cantidad').value) || 1;
+        total *= cantidad;
+    
+    // envio a domicilio
+        if (document.getElementById('envio_domicilio').checked) {
+            total += 30;
+        }
+
+        // actualizacion del total
+        totalBox.innerText = `Total: $${total.toFixed(2)} MXN`;
+        
+        // retorno
+        return total;
+    }
+
+    // calcular Total
+    form.addEventListener('submit', (e) => {
+
+        // cancelar recarga de la pagina
+        e.preventDefault(); 
+
+        // guardar valor total
+        const totalFinal = calcularTotal();
+        alert("El costo total de tu pedido es: $" + totalFinal.toFixed(2) + " MXN");
+    });
+
+    //cambio en tiempo real
+    form.addEventListener('change', calcularTotal);
 </script>
 </body>
 </html>
